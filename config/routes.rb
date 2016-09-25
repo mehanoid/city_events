@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'events#index'
+  resources :events, only: %i[show]
 
   devise_for :users
   ActiveAdmin.routes(self)
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
