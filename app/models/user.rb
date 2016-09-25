@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :registerable
 
   has_many :events_searches, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 end

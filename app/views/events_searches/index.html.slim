@@ -2,7 +2,7 @@
   -if @events_searches.any?
     - @events_searches.each do |events_search|
       .search
-        | #{events_search.city.name}, #{events_search.name}, #{events_search.name}, #{events_search.from_date}, #{events_search.to_date}
+        | #{events_search.city&.name}, #{events_search.name}, #{events_search.from_date}, #{events_search.to_date}
         => link_to 'Open', events_search
         = link_to 'Delete', events_search, method: :delete, data: {confirm: 'Are you sure?'}
   - else
