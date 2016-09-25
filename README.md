@@ -1,24 +1,16 @@
-# README
+# Requirements
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* ruby 2.3.1
+* postgresql
 
-Things you may want to cover:
+# Installation
 
-* Ruby version
+```
+git clone git@github.com:mehanoid/city_events.git
+bundle install
+rake db:setup
+```
 
-* System dependencies
+# Starting
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`rails s`
