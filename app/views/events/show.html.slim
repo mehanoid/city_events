@@ -2,6 +2,8 @@ h1 Event: #{@event.name}
 p City: #{@event.city.name}
 - if @event.address.present?
   p Address: #{@event.address}
+p Starts at: #{@event.starts_at}
+p Ends at: #{@event.ends_at}
 
 - if @event.conversation_topics.any?
   h2 Conversations

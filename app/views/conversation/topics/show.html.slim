@@ -2,11 +2,12 @@ h1 Conversation: #{@topic.title}
 
 = semantic_form_for [@topic, Conversation::Message.new] do |f|
   = f.input :body, as: :text
-  = f.submit
+  = f.submit class: 'btn btn-default'
 
+br
 .messages
 - @topic.conversation_messages.each do |message|
-  .message
+  .message.records-list-item
     p = message.user.email
     p = message.created_at
     p = simple_format h message.body

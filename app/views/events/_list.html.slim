@@ -1,8 +1,9 @@
 .events
   - if @events.any?
     - @events.each do |event|
-      .event
+      .event.records-list-item
         p = link_to event.name, event
         p = event.city.name
+        p #{event.starts_at} - #{event.ends_at}
   - else
     p No events found =(

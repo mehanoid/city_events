@@ -53,6 +53,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_admin_datetimepicker (0.3.0)
+      xdan-datetimepicker-rails (~> 2.5.1)
     activejob (5.0.0.1)
       activesupport (= 5.0.0.1)
       globalid (>= 0.3.6)
@@ -105,6 +107,8 @@ GEM
     ffi (1.9.14)
     formtastic (3.1.4)
       actionpack (>= 3.2.13)
+    formtastic-bootstrap (3.1.1)
+      formtastic (>= 3.0)
     formtastic_i18n (0.6.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -260,17 +264,22 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    xdan-datetimepicker-rails (2.5.4)
+      jquery-rails
+      rails (>= 3.2.16)
     yard (0.8.7.6)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_admin_datetimepicker
   activeadmin!
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.2)
   devise
+  formtastic-bootstrap
   inherited_resources!
   jazz_fingers
   jbuilder (~> 2.5)

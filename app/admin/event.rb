@@ -4,8 +4,14 @@ ActiveAdmin.register Event do
                 conversation_topics_attributes: [:id, :title, :_destroy]
 
   form do |f|
-    f.semantic_errors # shows errors on :base
-    f.inputs          # builds an input field for every attribute
+    f.semantic_errors
+    f.inputs do
+      input :city
+      input :name
+      input :starts_at, as: :date_time_picker
+      input :ends_at, as: :date_time_picker
+      input :address
+    end
 
     f.inputs do
       f.has_many :conversation_topics do |a|
@@ -13,7 +19,7 @@ ActiveAdmin.register Event do
       end
     end
 
-    f.actions         # adds the 'Submit' and 'Cancel' buttons
+    f.actions
   end
 
 end

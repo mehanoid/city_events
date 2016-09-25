@@ -1,9 +1,17 @@
-.searched
+.searches
+  h1 Saved searches list
   -if @events_searches.any?
     - @events_searches.each do |events_search|
-      .search
-        | #{events_search.city&.name}, #{events_search.name}, #{events_search.from_date}, #{events_search.to_date}
-        => link_to 'Open', events_search
-        = link_to 'Delete', events_search, method: :delete, data: {confirm: 'Are you sure?'}
+      .search.records-list-item
+        - if events_search.city
+          p City: #{events_search.city&.name}
+        - if events_search.name.present?
+          p Name: #{events_search.name}
+        - if events_search.from_date.present?
+            p From Date: #{events_search.from_date}
+        - if events_search.to_date.present?
+            p To Date: #{events_search.to_date}
+        => link_to 'Open', events_search, class: 'btn btn-default'
+        => link_to 'Delete', events_search, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
   - else
     | No searches saved
