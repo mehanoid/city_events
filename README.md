@@ -14,3 +14,6 @@ rake db:setup
 # Starting
 
 `rails s`
+
+Now you can sign in with user `admin@example.com` and password `12345678`.
+Admin panel is here: /admin
