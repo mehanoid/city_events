@@ -1,0 +1,8 @@
+.events
+  - if @events.any?
+    - @events.each do |event|
+      .event
+        p = link_to event.name, event
+        p = event.city.name
+  - else
+    p No events found =(

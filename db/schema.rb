@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925134344) do
+ActiveRecord::Schema.define(version: 20160925145559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,18 @@ ActiveRecord::Schema.define(version: 20160925134344) do
     t.index ["city_id"], name: "index_events_on_city_id", using: :btree
   end
 
+  create_table "events_searches", force: :cascade do |t|
+    t.integer  "city_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_events_searches_on_city_id", using: :btree
+    t.index ["user_id"], name: "index_events_searches_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -86,4 +98,6 @@ ActiveRecord::Schema.define(version: 20160925134344) do
   add_foreign_key "conversation_messages", "users"
   add_foreign_key "conversation_topics", "events"
   add_foreign_key "events", "cities"
+  add_foreign_key "events_searches", "cities"
+  add_foreign_key "events_searches", "users"
 end

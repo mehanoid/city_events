@@ -3,5 +3,5 @@ class Event < ApplicationRecord
   has_many :conversation_topics, class_name: 'Conversation::Topic'
   accepts_nested_attributes_for :conversation_topics
 
-  validates :name, presence: true
+  validates :name, :starts_at, :ends_at, presence: true
 end

@@ -1,0 +1,5 @@
+h1 Events list
+= render 'events/list'
+- if user_signed_in?
+  = button_to 'Save current search', events_searches_path, params: {events_search: @events_search.attributes.compact }
+= render 'events/search'

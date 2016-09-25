@@ -1,5 +1,3 @@
 h1 Events list
-- @events.each do |event|
-  .event
-    p = link_to event.name, event
-    p = event.city.name
+= render 'events/list'
+= render 'events/search'

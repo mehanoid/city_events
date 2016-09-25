@@ -1,0 +1,7 @@
+.search
+  = semantic_form_for @events_search, url: new_events_search_path, method: :get do |f|
+    = f.input :city
+    = f.input :name
+    = f.input :from_date, as: :date_picker
+    = f.input :to_date, as: :date_picker
+    = f.submit :search
