@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925131631) do
+ActiveRecord::Schema.define(version: 20160925134344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,24 @@ ActiveRecord::Schema.define(version: 20160925131631) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "conversation_messages", force: :cascade do |t|
+    t.integer  "conversation_topic_id"
+    t.string   "body"
+    t.integer  "user_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["conversation_topic_id"], name: "index_conversation_messages_on_conversation_topic_id", using: :btree
+    t.index ["user_id"], name: "index_conversation_messages_on_user_id", using: :btree
+  end
+
+  create_table "conversation_topics", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_conversation_topics_on_event_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -64,5 +82,8 @@ ActiveRecord::Schema.define(version: 20160925131631) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "conversation_messages", "conversation_topics"
+  add_foreign_key "conversation_messages", "users"
+  add_foreign_key "conversation_topics", "events"
   add_foreign_key "events", "cities"
 end

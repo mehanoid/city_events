@@ -1,2 +1,9 @@
-h1 = @event.name
-= @event.city.name
+h1 Event: #{@event.name}
+p City: #{@event.city.name}
+- if @event.address.present?
+  p Address: #{@event.address}
+
+h2 Conversations
+ul
+  - @event.conversation_topics.each do |topic|
+    li = link_to topic.title, topic
