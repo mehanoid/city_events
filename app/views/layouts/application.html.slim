@@ -10,5 +10,5 @@ html
     = render 'shared/header'
     .container
       = flash_messages
-      = render 'shared/notifications'
+      = render 'shared/notifications', user: current_user
       = yield

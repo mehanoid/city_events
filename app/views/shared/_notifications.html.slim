@@ -1,5 +1,6 @@
-- if user_signed_in?
-  - read_notifications.each do |notification|
-    .notification
-      p = notification.message
-      p = link_to 'See', notification.url
+- if user
+  .notifications
+    - user.notifications.unread.each do |notification|
+      .notifications__notification
+        p = notification.message
+        p = link_to 'See', notification

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'events#index'
 
+  resources :notifications, only: %i[show]
   resources :events, only: %i[show]
   resources :events_searches, except: %i[edit update]
 

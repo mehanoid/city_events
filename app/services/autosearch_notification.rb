@@ -9,6 +9,7 @@ class AutosearchNotification
   def notify!
     users.each do |user|
       Notification.create user: user, message: %Q{New event "#{event.name}" matching your saved search}, url: url
+      NotificationsChannel.update_notifications_for(user)
     end
   end
 
@@ -19,6 +20,7 @@ class AutosearchNotification
   end
 
   def url
-    @url ||= Rails.application.routes.url_helpers.event_path(event)
+    @url ||= Rails.application.routes.url_helpers.event_url(event)
   end
+
 end
